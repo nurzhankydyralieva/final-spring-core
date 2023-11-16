@@ -1,14 +1,14 @@
 package com.epam.project.facade;
 
-import com.epam.project.model.Trainee;
-import com.epam.project.model.Trainer;
-import com.epam.project.model.Training;
+import com.epam.project.model.*;
+import com.epam.project.service.ProfileService;
 import com.epam.project.service.TraineeService;
 import com.epam.project.service.TrainerService;
 import com.epam.project.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Map;
 
 @Component
@@ -17,12 +17,26 @@ public class ServiceFacade {
     private final TraineeService traineeService;
     private final TrainingService trainingService;
 
+
+    private final ProfileService profileService;
+
     @Autowired
-    public ServiceFacade(TrainerService trainerService, TraineeService traineeService, TrainingService trainingService) {
+
+    public ServiceFacade(TrainerService trainerService, TraineeService traineeService, TrainingService trainingService, ProfileService profileService) {
         this.trainerService = trainerService;
         this.traineeService = traineeService;
         this.trainingService = trainingService;
+        this.profileService = profileService;
     }
+
+    public User traineeProfile(String firstName, String lastName, Date dateOfBirth, String address) {
+        return profileService.createTraineeProfile(firstName, lastName, dateOfBirth, address);
+    }
+
+    public User trainerProfile(String firstName, String lastName, Specialization specialization) {
+        return profileService.createTrainerProfile(firstName, lastName, specialization);
+    }
+
 
     public void createTrainer(Map<Integer, Trainer> trainers) {
         trainerService.create(trainers);
@@ -49,11 +63,10 @@ public class ServiceFacade {
         traineeService.update(id, updatedTrainee);
     }
 
-    public boolean deleteTrainee(int id){
+    public boolean deleteTrainee(int id) {
         traineeService.delete(id);
         return true;
     }
-
 
     public void createTraining(Map<Integer, Training> trainings) {
         trainingService.create(trainings);

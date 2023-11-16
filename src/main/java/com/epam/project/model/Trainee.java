@@ -9,16 +9,16 @@ public class Trainee {
     private Integer id;
     private Date dateOfBirth;
     private String address;
-    private User userId;
+    private User user;
 
     public Trainee() {
     }
 
-    public Trainee(Integer id, Date dateOfBirth, String address, User userId) {
+    public Trainee(Integer id, Date dateOfBirth, String address, User user) {
         this.id = id;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
-        this.userId = userId;
+        this.user = user;
     }
 
     public Trainee(Integer id, Date dateOfBirth, String address) {
@@ -31,6 +31,13 @@ public class Trainee {
         this.id = id;
         this.address = address;
     }
+
+    public Trainee(Date dateOfBirth, String address, User user) {
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+        this.user = user;
+    }
+
 
     public Integer getId() {
         return id;
@@ -56,12 +63,12 @@ public class Trainee {
         this.address = address;
     }
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -70,7 +77,7 @@ public class Trainee {
                 "id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
                 ", address='" + address + '\'' +
-                ", userId=" + userId +
+                ", user=" + user +
                 '}';
     }
 }

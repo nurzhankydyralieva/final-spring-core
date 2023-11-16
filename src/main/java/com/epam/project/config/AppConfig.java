@@ -25,10 +25,15 @@ public class AppConfig {
     @Value("${data.file.path.training}")
     private String dataTrainingPath;
 
-    @Bean
+    @Bean(initMethod = "initBean", destroyMethod = "destroyBean")
     public Storage storage() {
         return new Storage();
     }
+
+//    @Bean
+//    public ProfileService profileService() {
+//        return new ProfileService();
+//    }
 
     @Bean
     public TrainerService trainerService() {

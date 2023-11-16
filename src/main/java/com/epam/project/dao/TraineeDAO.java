@@ -25,7 +25,7 @@ public class TraineeDAO {
         try (FileWriter writer = new FileWriter("data_trainee.txt")) {
             for (Map.Entry<Integer, Trainee> entry : trainees.entrySet()) {
                 Trainee trainee = entry.getValue();
-                writer.write(trainee.getId() + "," + trainee.getDateOfBirth() + "," + trainee.getAddress() + ", " + trainee.getUserId() + "\n");
+                writer.write(trainee.getId() + "," + trainee.getDateOfBirth() + "," + trainee.getAddress() + ", " + trainee.getUser() + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

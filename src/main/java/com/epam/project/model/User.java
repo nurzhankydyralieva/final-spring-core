@@ -23,13 +23,16 @@ public class User {
         this.isActive = isActive;
     }
 
-    public User(String userName, String password) {
+    public User(String userName, String password, boolean isActive) {
         this.userName = userName;
         this.password = password;
+        this.isActive = isActive;
     }
 
     public User(String part) {
     }
+
+
 
 
     public Integer getId() {
