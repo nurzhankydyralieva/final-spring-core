@@ -1,10 +1,8 @@
 package com.epam.project.model;
 
-import lombok.Builder;
-
 import java.util.Date;
 
-@Builder
+
 public class Trainee {
     private Integer id;
     private Date dateOfBirth;

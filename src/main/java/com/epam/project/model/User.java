@@ -1,8 +1,5 @@
 package com.epam.project.model;
 
-import lombok.Builder;
-
-@Builder
 public class User {
     private Integer id;
     private String firstName;
@@ -31,8 +28,6 @@ public class User {
 
     public User(String part) {
     }
-
-
 
 
     public Integer getId() {

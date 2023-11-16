@@ -61,6 +61,38 @@ public class Storage {
             e.printStackTrace();
         }
     }
+    public void writeDataToTraineeFile(Map<Integer, Trainee> trainees) {
+        try (FileWriter writer = new FileWriter("data_trainee.txt")) {
+            for (Map.Entry<Integer, Trainee> entry : trainees.entrySet()) {
+                Trainee trainee = entry.getValue();
+                writer.write(trainee.getId() + "," + trainee.getDateOfBirth() + "," + trainee.getAddress() + ", " + trainee.getUser() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeDataToTrainerFile(Map<Integer, Trainer> trainers) {
+        try (FileWriter writer = new FileWriter("data_trainer.txt")) {
+            for (Map.Entry<Integer, Trainer> entry : trainers.entrySet()) {
+                Trainer trainer = entry.getValue();
+                writer.write(trainer.getId() + "," + trainer.getName() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeDataToTrainingFile(Map<Integer, Training> trainings) {
+        try (FileWriter writer = new FileWriter("data_training.txt")) {
+            for (Map.Entry<Integer, Training> entry : trainings.entrySet()) {
+                Training training = entry.getValue();
+                writer.write(training.getId() + "," + training.getTrainerId() + ", "
+                        + training.getTrainingName() + ", " + training.getTrainingTypeId()
+                        + ", " + training.getTrainingDate() + ", " + training.getTrainingDuration() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void initBean() {
