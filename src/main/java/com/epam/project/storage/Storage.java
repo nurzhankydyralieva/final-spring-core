@@ -16,6 +16,7 @@ public class Storage {
     private Map<Integer, Trainer> trainers = new HashMap<>();
     private Map<Integer, Trainee> trainees = new HashMap<>();
     private Map<Integer, Training> trainings = new HashMap<>();
+    private Map<String, User> users = new HashMap<>();
 
     public Map<Integer, Trainee> getTrainees() {
         return trainees;
@@ -28,8 +29,6 @@ public class Storage {
     public Map<Integer, Training> getTrainings() {
         return trainings;
     }
-
-    private Map<String, User> users = new HashMap<>();
 
     public void setTrainers(Map<Integer, Trainer> trainers) {
         this.trainers = trainers;
