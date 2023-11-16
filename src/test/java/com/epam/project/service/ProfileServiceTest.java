@@ -5,7 +5,6 @@ import com.epam.project.dao.TrainerDAO;
 import com.epam.project.model.Trainee;
 import com.epam.project.model.Trainer;
 import com.epam.project.model.User;
-import com.epam.project.storage.Storage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -65,7 +64,6 @@ class ProfileServiceTest {
         trainerService.create(trainers);
         assertTrue(trainers.containsKey(1));
     }
-
 
 
     @Test

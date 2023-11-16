@@ -32,7 +32,6 @@ class TrainingServiceTest {
         trainings = new HashMap<>();
         trainings.put(1, new Training(1, "Dance"));
         trainings.put(2, new Training(2, "Basketball"));
-
     }
 
     @Test

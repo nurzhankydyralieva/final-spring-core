@@ -17,7 +17,6 @@ import java.util.Map;
 public class TrainingDAO {
     @Autowired
     private Storage storage;
-
     @Value("${data.file.path.training}")
     private String dataFilePath;
 
@@ -50,7 +49,6 @@ public class TrainingDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         storage.setTrainings(trainings);
         return trainings;
     }
@@ -58,5 +56,4 @@ public class TrainingDAO {
     public String setDataFilePath(String dataFilePath) {
         return dataFilePath;
     }
-
 }

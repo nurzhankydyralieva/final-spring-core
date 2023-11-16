@@ -30,11 +30,6 @@ public class AppConfig {
         return new Storage();
     }
 
-//    @Bean
-//    public ProfileService profileService() {
-//        return new ProfileService();
-//    }
-
     @Bean
     public TrainerService trainerService() {
         return new TrainerService(trainerDAO());
@@ -70,6 +65,4 @@ public class AppConfig {
         trainingDAO.setDataFilePath(dataTrainingPath);
         return trainingDAO;
     }
-
-
 }

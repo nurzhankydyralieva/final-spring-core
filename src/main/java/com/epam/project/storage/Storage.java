@@ -60,6 +60,7 @@ public class Storage {
             e.printStackTrace();
         }
     }
+
     public void writeDataToTraineeFile(Map<Integer, Trainee> trainees) {
         try (FileWriter writer = new FileWriter("data_trainee.txt")) {
             for (Map.Entry<Integer, Trainee> entry : trainees.entrySet()) {
@@ -70,6 +71,7 @@ public class Storage {
             e.printStackTrace();
         }
     }
+
     public void writeDataToTrainerFile(Map<Integer, Trainer> trainers) {
         try (FileWriter writer = new FileWriter("data_trainer.txt")) {
             for (Map.Entry<Integer, Trainer> entry : trainers.entrySet()) {
@@ -80,6 +82,7 @@ public class Storage {
             e.printStackTrace();
         }
     }
+
     public void writeDataToTrainingFile(Map<Integer, Training> trainings) {
         try (FileWriter writer = new FileWriter("data_training.txt")) {
             for (Map.Entry<Integer, Training> entry : trainings.entrySet()) {
@@ -92,7 +95,6 @@ public class Storage {
             e.printStackTrace();
         }
     }
-
 
     public void initBean() {
         System.out.println("Init Bean for : Storage");

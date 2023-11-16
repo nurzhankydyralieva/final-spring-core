@@ -55,24 +55,19 @@ public class TraineeDAO {
 
 
     public void updateDataInTraineeFile(int id, Trainee updatedTrainee) {
-
         Map<Integer, Trainee> existingData = readDataFromTraineeFile();
-
         existingData.put(id, updatedTrainee);
-
         writeDataToTraineeFile(existingData);
     }
 
+    public void deleteDataInTraineeFile(int id) {
+        Map<Integer, Trainee> existingData = readDataFromTraineeFile();
+        existingData.remove(id);
+        writeDataToTraineeFile(existingData);
+    }
 
     public String setDataFilePath(String dataFilePath) {
         return dataFilePath;
     }
 
-    public void deleteDataInTraineeFile(int id) {
-        Map<Integer, Trainee> existingData = readDataFromTraineeFile();
-
-        existingData.remove(id);
-
-        writeDataToTraineeFile(existingData);
-    }
 }

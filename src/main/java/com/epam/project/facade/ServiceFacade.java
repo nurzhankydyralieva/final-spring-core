@@ -16,8 +16,6 @@ public class ServiceFacade {
     private final TrainerService trainerService;
     private final TraineeService traineeService;
     private final TrainingService trainingService;
-
-
     private final ProfileService profileService;
 
     @Autowired

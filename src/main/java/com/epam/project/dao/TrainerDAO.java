@@ -33,11 +33,8 @@ public class TrainerDAO {
     }
 
     public void updateDataInTrainerFile(int id, Trainer updatedTrainer) {
-
         Map<Integer, Trainer> existingData = readDataFromTrainerFile();
-
         existingData.put(id, updatedTrainer);
-
         writeDataToTrainerFile(existingData);
     }
 
@@ -57,11 +54,9 @@ public class TrainerDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         storage.setTrainers(trainers);
         return trainers;
     }
-
 
     public String setDataFilePath(String dataFilePath) {
         return dataFilePath;

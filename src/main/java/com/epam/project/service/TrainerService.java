@@ -12,7 +12,6 @@ import java.util.Map;
 @Service
 public class TrainerService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrainerService.class);
-
     private TrainerDAO trainerDAO;
 
     @Autowired

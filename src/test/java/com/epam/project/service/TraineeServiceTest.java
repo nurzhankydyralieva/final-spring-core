@@ -33,7 +33,6 @@ class TraineeServiceTest {
         trainees.put(1, new Trainee(1, "Bishkek"));
         trainees.put(2, new Trainee(2, "New York"));
         trainees.put(3, new Trainee(3, "Astana"));
-
     }
 
     @Test

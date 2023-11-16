@@ -25,7 +25,7 @@ public class StorageBeanPP implements BeanPostProcessor {
             trainers.put(1, new Trainer(1, "Tom"));
             trainers.put(2, new Trainer(2, "Sarah"));
             trainers.put(3, new Trainer(3, "Andrea"));
-            ((Storage)bean).writeDataToTrainerFile(trainers);
+            ((Storage) bean).writeDataToTrainerFile(trainers);
 
             Map<Integer, Trainee> trainees = new HashMap<>();
             trainees.put(1, new Trainee(1, "Kyrgyzstan"));
@@ -37,7 +37,7 @@ public class StorageBeanPP implements BeanPostProcessor {
             trainings.put(1, new Training(1, "Cross-country running"));
             trainings.put(2, new Training(2, "Olympic weightlifting"));
             trainings.put(3, new Training(3, "Chess boxing"));
-            ((Storage)bean).writeDataToTrainingFile(trainings);
+            ((Storage) bean).writeDataToTrainingFile(trainings);
         }
         //   System.out.println("Called postProcessBeforeInitialization() for: " + beanName);
         return bean;

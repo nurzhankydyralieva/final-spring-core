@@ -1,7 +1,6 @@
 package com.epam.project.service;
 
 import com.epam.project.dao.TrainingDAO;
-import com.epam.project.model.Trainer;
 import com.epam.project.model.Training;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,5 +28,4 @@ public class TrainingService {
         LOGGER.info("All trainings are selected");
         return trainingDAO.readDataFromTrainingFile();
     }
-
 }

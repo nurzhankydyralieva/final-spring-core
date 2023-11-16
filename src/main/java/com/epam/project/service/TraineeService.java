@@ -12,7 +12,6 @@ import java.util.Map;
 @Service
 public class TraineeService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrainerService.class);
-
     private TraineeDAO traineeDAO;
 
     @Autowired
@@ -34,7 +33,8 @@ public class TraineeService {
         LOGGER.info("Trainee is updated");
         traineeDAO.updateDataInTraineeFile(id, updatedTrainee);
     }
-    public boolean delete(int id){
+
+    public boolean delete(int id) {
         LOGGER.info("Trainee is deleted by id");
         traineeDAO.deleteDataInTraineeFile(id);
         return true;
