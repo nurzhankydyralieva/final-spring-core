@@ -12,6 +12,7 @@ public class Trainee {
     public Trainee() {
     }
 
+
     public Trainee(Integer id, Date dateOfBirth, String address, User user) {
         this.id = id;
         this.dateOfBirth = dateOfBirth;
@@ -35,6 +36,8 @@ public class Trainee {
         this.address = address;
         this.user = user;
     }
+
+
 
 
     public Integer getId() {

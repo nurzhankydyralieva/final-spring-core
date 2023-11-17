@@ -20,6 +20,9 @@ public class Trainer {
         this.user = user;
     }
 
+
+
+
     public Specialization getSpecialization() {
         return specialization;
     }

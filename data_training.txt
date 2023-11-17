@@ -1,3 +1,0 @@
-1,null, Cross-country running, null, null, null
-2,null, Olympic weightlifting, null, null, null
-3,null, Chess boxing, null, null, null

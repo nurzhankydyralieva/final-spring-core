@@ -12,6 +12,10 @@ public class TrainingType {
         this.name = name;
     }
 
+    public static TrainingType valueOf(String trim) {
+        return null;
+    }
+
     public Integer getId() {
         return id;
     }

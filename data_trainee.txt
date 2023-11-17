@@ -1,3 +1,0 @@
-1,null,Kyrgyzstan, null
-2,null,Berlin, null
-3,null,New York, null

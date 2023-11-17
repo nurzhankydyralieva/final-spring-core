@@ -33,7 +33,7 @@ public class Main {
 
 //        facade.createTrainer(trainers);
 //        facade.updateTrainer(1, new Trainer(1, "Katy Perry"));
-        facade.selectTrainer();
+//        facade.selectTrainer();
 
         Map<Integer, Trainer> trainers2 = storage.getTrainers();
 
@@ -43,33 +43,33 @@ public class Main {
         }
         // This is Trainee entity
         Map<Integer, Trainee> trainees = new HashMap<>();
-        trainees.put(1, new Trainee(1, "Kyrgyzstan"));
-        trainees.put(2, new Trainee(2, "Berlin"));
+        trainees.put(1, new Trainee(1, new Date(), "Turkey"));
+        trainees.put(2, new Trainee(2, new Date(), "Tashkent"));
 
 //        facade.createTrainee(trainees);
-//        facade.updateTrainee(1, new Trainee(1, "Dubai"));
-        facade.selectTrainee();
+//        facade.updateTrainee(1, new Trainee(1, new Date(), "Dubai"));
+//        facade.selectTrainee();
 //        facade.deleteTrainee(1);
 
         Map<Integer, Trainee> trainees2 = storage.getTrainees();
 
         for (Map.Entry<Integer, Trainee> entry : trainees2.entrySet()) {
             Trainee trainee = entry.getValue();
-            System.out.println("Trainee id: " + trainee.getId() + ", " + trainee.getDateOfBirth() + ", Address: " + trainee.getAddress() + ", " + trainee.getUser());
+            System.out.println("Trainee id: " + trainee.getId() + ", Date of birth: " + trainee.getDateOfBirth() + ", Address: " + trainee.getAddress() + ", User: " + trainee.getUser());
         }
         // This is Training entity
         Map<Integer, Training> trainings = new HashMap<>();
-        trainings.put(1, new Training(1, "Dance"));
+        trainings.put(1, new Training(1, "Dance", 77));
 
 //        facade.createTraining(trainings);
-        facade.selectTraining();
+//        facade.selectTraining();
 
         Map<Integer, Training> trainings2 = storage.getTrainings();
 
         for (Map.Entry<Integer, Training> entry : trainings2.entrySet()) {
             Training training = entry.getValue();
-            System.out.println("Training id: " + training.getId() + ", " + training.getTrainerId() + ", Training name: " + training.getTrainingName()
-                    + ", Training date: " + training.getTrainingDate() + ", Training type: " + training.getTrainingTypeId() + ", Training duration: " + training.getTrainingDuration());
+            System.out.println("Training id: " + training.getId() + ", Trainer id: " + training.getTrainerId() + ", Trainee id: " + training.getTraineeId() + ", Training date: " + training.getTrainingDate()
+                    + ", Training name: " + training.getTrainingName() + ", Training type: " + training.getTrainingTypeId() + ", Training duration: " + training.getTrainingDuration());
         }
 
         context.close();

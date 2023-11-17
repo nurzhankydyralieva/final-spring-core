@@ -11,6 +11,7 @@ public class User {
     public User() {
     }
 
+
     public User(Integer id, String firstName, String lastName, String userName, String password, boolean isActive) {
         this.id = id;
         this.firstName = firstName;
@@ -25,10 +26,6 @@ public class User {
         this.password = password;
         this.isActive = isActive;
     }
-
-    public User(String part) {
-    }
-
 
     public Integer getId() {
         return id;

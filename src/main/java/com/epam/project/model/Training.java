@@ -15,11 +15,6 @@ public class Training {
     public Training() {
     }
 
-    public Training(Integer id, String trainingName) {
-        this.id = id;
-        this.trainingName = trainingName;
-    }
-
     public Training(Integer id, Trainee traineeId, Trainer trainerId, String trainingName, TrainingType trainingTypeId, Date trainingDate, Number trainingDuration) {
         this.id = id;
         this.traineeId = traineeId;
@@ -28,6 +23,24 @@ public class Training {
         this.trainingTypeId = trainingTypeId;
         this.trainingDate = trainingDate;
         this.trainingDuration = trainingDuration;
+    }
+
+
+    public Training(Integer id, String trainingName) {
+        this.id = id;
+        this.trainingName = trainingName;
+    }
+
+    public Training(Integer id, String trainingName, Number trainingDuration) {
+        this.id = id;
+        this.trainingName = trainingName;
+        this.trainingDuration = trainingDuration;
+    }
+
+    public Training(Integer id, String trainingName, Date trainingDate) {
+        this.id = id;
+        this.trainingName = trainingName;
+        this.trainingDate = trainingDate;
     }
 
     public Integer getId() {

@@ -1,5 +1,6 @@
 package com.epam.project.dao;
 
+import com.epam.project.model.Trainer;
 import com.epam.project.model.Training;
 import com.epam.project.storage.Storage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Repository
@@ -36,22 +41,32 @@ public class TrainingDAO {
     public Map<Integer, Training> readDataFromTrainingFile() {
         Map<Integer, Training> trainings = new HashMap<>();
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                Locale.ENGLISH);
         try (BufferedReader reader = new BufferedReader(new FileReader(dataFilePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 6) {
                     int id = Integer.parseInt(parts[0]);
+
                     String trainingName = parts[2];
-                    trainings.put(id, new Training(id, trainingName));
+                  //  String dateString = parts[4];
+                  //  Date date = dateFormat.parse(dateString);
+                    Number trainingDuration = Double.parseDouble(parts[5]);
+                    trainings.put(id, new Training(id, trainingName,trainingDuration));
+                  //  trainings.put(id, new Training(id, trainingName,date));
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException e ) {
             e.printStackTrace();
         }
         storage.setTrainings(trainings);
         return trainings;
     }
+
+
+
 
     public String setDataFilePath(String dataFilePath) {
         return dataFilePath;
