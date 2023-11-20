@@ -1,7 +1,6 @@
 package com.epam.project.dao;
 
 import com.epam.project.model.Trainee;
-import com.epam.project.model.User;
 import com.epam.project.storage.Storage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,8 +39,7 @@ public class TraineeDAO {
     public Map<Integer, Trainee> readDataFromTraineeFile() {
         Map<Integer, Trainee> trainees = new HashMap<>();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
-                Locale.ENGLISH);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
         try (BufferedReader reader = new BufferedReader(new FileReader(dataFilePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -52,7 +50,6 @@ public class TraineeDAO {
                     Date date = dateFormat.parse(dateString);
                     String address = parts[2];
 
-                    //   trainees.put(id, new Trainee(id, address));
                     trainees.put(id, new Trainee(id, date, address));
                 }
             }
@@ -76,9 +73,4 @@ public class TraineeDAO {
         existingData.remove(id);
         writeDataToTraineeFile(existingData);
     }
-
-    public String setDataFilePath(String dataFilePath) {
-        return dataFilePath;
-    }
-
 }

@@ -7,7 +7,6 @@ import com.epam.project.service.TraineeService;
 import com.epam.project.service.TrainerService;
 import com.epam.project.service.TrainingService;
 import com.epam.project.storage.Storage;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,13 +16,6 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan("com.epam.project")
 @PropertySource("classpath:application.properties")
 public class AppConfig {
-
-    @Value("${data.file.path.trainer}")
-    private String dataTrainerPath;
-    @Value("${data.file.path.trainee}")
-    private String dataTraineePath;
-    @Value("${data.file.path.training}")
-    private String dataTrainingPath;
 
     @Bean(initMethod = "initBean", destroyMethod = "destroyBean")
     public Storage storage() {
@@ -47,22 +39,19 @@ public class AppConfig {
 
     @Bean
     public TrainerDAO trainerDAO() {
-        TrainerDAO trainerDAO = new TrainerDAO();
-        trainerDAO.setDataFilePath(dataTrainerPath);
-        return trainerDAO;
+        TrainerDAO object = new TrainerDAO();
+        return object;
     }
 
     @Bean
     public TraineeDAO traineeDAO() {
-        TraineeDAO traineeDAO = new TraineeDAO();
-        traineeDAO.setDataFilePath(dataTraineePath);
-        return traineeDAO;
+        TraineeDAO object = new TraineeDAO();
+        return object;
     }
 
     @Bean
     public TrainingDAO trainingDAO() {
-        TrainingDAO trainingDAO = new TrainingDAO();
-        trainingDAO.setDataFilePath(dataTrainingPath);
-        return trainingDAO;
+        TrainingDAO object = new TrainingDAO();
+        return object;
     }
 }

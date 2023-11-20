@@ -1,13 +1,16 @@
 package com.epam.project.storage;
 
+import com.epam.project.dao.TraineeDAO;
+import com.epam.project.dao.TrainerDAO;
+import com.epam.project.dao.TrainingDAO;
+import com.epam.project.dao.UserDAO;
 import com.epam.project.model.Trainee;
 import com.epam.project.model.Trainer;
 import com.epam.project.model.Training;
 import com.epam.project.model.User;
 import org.springframework.stereotype.Component;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,54 +53,35 @@ public class Storage {
         this.users = users;
     }
 
-    public void writeDataToUserStorageFile(Map<Integer, User> users) {
-        try (FileWriter writer = new FileWriter("data_user.txt")) {
-            for (Map.Entry<Integer, User> entry : users.entrySet()) {
-                User user = entry.getValue();
-                writer.write(user.getId() + ", " + user.getFirstName() + ", " + user.getLastName() + ", " + user.getUserName() + ", " + user.getPassword() + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeDataToTraineeFile(Map<Integer, Trainee> trainees) {
-        try (FileWriter writer = new FileWriter("data_trainee.txt")) {
-            for (Map.Entry<Integer, Trainee> entry : trainees.entrySet()) {
-                Trainee trainee = entry.getValue();
-                writer.write(trainee.getId() + "," + trainee.getDateOfBirth() + "," + trainee.getAddress() + ", " + trainee.getUser() + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeDataToTrainerFile(Map<Integer, Trainer> trainers) {
-        try (FileWriter writer = new FileWriter("data_trainer.txt")) {
-            for (Map.Entry<Integer, Trainer> entry : trainers.entrySet()) {
-                Trainer trainer = entry.getValue();
-                writer.write(trainer.getId() + "," + trainer.getName() + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeDataToTrainingFile(Map<Integer, Training> trainings) {
-        try (FileWriter writer = new FileWriter("data_training.txt")) {
-            for (Map.Entry<Integer, Training> entry : trainings.entrySet()) {
-                Training training = entry.getValue();
-                writer.write(training.getId() + "," + training.getTrainerId() + ", "
-                        + training.getTrainingName() + ", " + training.getTrainingTypeId()
-                        + ", " + training.getTrainingDate() + ", " + training.getTrainingDuration() + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void initBean() {
-        System.out.println("Init Bean for : Storage");
+        UserDAO userDAO = new UserDAO();
+        Map<Integer, User> users = new HashMap<>();
+        users.put(1, new User(1, "Andrea", "Bocelli", "Music", "password", true));
+        users.put(2, new User(2, "Sarah", "Conor", "Smith", "password", true));
+        users.put(3, new User(3, "Martina", "Liberty", "Smith", "password", true));
+        userDAO.writeDataToUserStorageFile(users);
+
+        TrainerDAO trainerDAO = new TrainerDAO();
+        Map<Integer, Trainer> trainers = new HashMap<>();
+        trainers.put(1, new Trainer(1, "Tom"));
+        trainers.put(2, new Trainer(2, "Sarah"));
+        trainers.put(3, new Trainer(3, "Andrea"));
+        trainerDAO.writeDataToTrainerFile(trainers);
+
+        TraineeDAO traineeDAO = new TraineeDAO();
+        Map<Integer, Trainee> trainees = new HashMap<>();
+        trainees.put(1, new Trainee(1, new Date(), "Kyrgyzstan"));
+        trainees.put(2, new Trainee(2, new Date(), "Berlin"));
+        trainees.put(3, new Trainee(3, new Date(), "New York"));
+        traineeDAO.writeDataToTraineeFile(trainees);
+
+        TrainingDAO trainingDAO = new TrainingDAO();
+        Map<Integer, Training> trainings = new HashMap<>();
+        trainings.put(1, new Training(1, "Cross-country running", 55));
+        trainings.put(2, new Training(2, "Olympic weightlifting", 40));
+        trainings.put(3, new Training(3, "Chess boxing", 22));
+        trainingDAO.writeDataToTrainingFile(trainings);
     }
 
     public void destroyBean() {

@@ -2,7 +2,6 @@ package com.epam.project.model;
 
 import java.util.Date;
 
-
 public class Trainee {
     private Integer id;
     private Date dateOfBirth;
@@ -11,7 +10,6 @@ public class Trainee {
 
     public Trainee() {
     }
-
 
     public Trainee(Integer id, Date dateOfBirth, String address, User user) {
         this.id = id;
@@ -36,9 +34,6 @@ public class Trainee {
         this.address = address;
         this.user = user;
     }
-
-
-
 
     public Integer getId() {
         return id;

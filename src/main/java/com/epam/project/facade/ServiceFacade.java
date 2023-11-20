@@ -19,7 +19,6 @@ public class ServiceFacade {
     private final ProfileService profileService;
 
     @Autowired
-
     public ServiceFacade(TrainerService trainerService, TraineeService traineeService, TrainingService trainingService, ProfileService profileService) {
         this.trainerService = trainerService;
         this.traineeService = traineeService;
@@ -35,7 +34,6 @@ public class ServiceFacade {
         return profileService.createTrainerProfile(firstName, lastName, specialization);
     }
 
-
     public void createTrainer(Map<Integer, Trainer> trainers) {
         trainerService.create(trainers);
     }
@@ -47,7 +45,6 @@ public class ServiceFacade {
     public void updateTrainer(int id, Trainer updatedTrainer) {
         trainerService.update(id, updatedTrainer);
     }
-
 
     public void createTrainee(Map<Integer, Trainee> trainees) {
         traineeService.create(trainees);
@@ -73,5 +70,4 @@ public class ServiceFacade {
     public Map<Integer, Training> selectTraining() {
         return trainingService.select();
     }
-
 }

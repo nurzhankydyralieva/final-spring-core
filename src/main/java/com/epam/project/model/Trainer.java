@@ -9,7 +9,6 @@ public class Trainer {
     public Trainer() {
     }
 
-
     public Trainer(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -19,9 +18,6 @@ public class Trainer {
         this.specialization = specialization;
         this.user = user;
     }
-
-
-
 
     public Specialization getSpecialization() {
         return specialization;

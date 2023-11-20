@@ -57,8 +57,4 @@ public class TrainerDAO {
         storage.setTrainers(trainers);
         return trainers;
     }
-
-    public String setDataFilePath(String dataFilePath) {
-        return dataFilePath;
-    }
 }
