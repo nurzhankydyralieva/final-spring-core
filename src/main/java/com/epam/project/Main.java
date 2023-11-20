@@ -71,7 +71,6 @@ public class Main {
             System.out.println("Training id: " + training.getId() + ", Trainer id: " + training.getTrainerId() + ", Trainee id: " + training.getTraineeId() + ", Training date: " + training.getTrainingDate()
                     + ", Training name: " + training.getTrainingName() + ", Training type: " + training.getTrainingTypeId() + ", Training duration: " + training.getTrainingDuration());
         }
-
         context.close();
     }
 }

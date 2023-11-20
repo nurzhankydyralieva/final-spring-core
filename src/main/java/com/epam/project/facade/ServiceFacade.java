@@ -5,7 +5,6 @@ import com.epam.project.service.ProfileService;
 import com.epam.project.service.TraineeService;
 import com.epam.project.service.TrainerService;
 import com.epam.project.service.TrainingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -18,7 +17,6 @@ public class ServiceFacade {
     private final TrainingService trainingService;
     private final ProfileService profileService;
 
-    @Autowired
     public ServiceFacade(TrainerService trainerService, TraineeService traineeService, TrainingService trainingService, ProfileService profileService) {
         this.trainerService = trainerService;
         this.traineeService = traineeService;

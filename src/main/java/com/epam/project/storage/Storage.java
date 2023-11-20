@@ -10,16 +10,17 @@ import com.epam.project.model.Training;
 import com.epam.project.model.User;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PreDestroy;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
 public class Storage {
+
     private Map<Integer, Trainer> trainers = new HashMap<>();
     private Map<Integer, Trainee> trainees = new HashMap<>();
     private Map<Integer, Training> trainings = new HashMap<>();
-    private Map<String, User> users = new HashMap<>();
 
     public Map<Integer, Trainee> getTrainees() {
         return trainees;
@@ -44,15 +45,6 @@ public class Storage {
     public void setTrainings(Map<Integer, Training> trainings) {
         this.trainings = trainings;
     }
-
-    public Map<String, User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Map<String, User> users) {
-        this.users = users;
-    }
-
 
     public void initBean() {
         UserDAO userDAO = new UserDAO();
@@ -84,6 +76,7 @@ public class Storage {
         trainingDAO.writeDataToTrainingFile(trainings);
     }
 
+    @PreDestroy
     public void destroyBean() {
         System.out.println("Destroy Bean for : Storage");
     }

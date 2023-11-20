@@ -4,17 +4,13 @@ import com.epam.project.dao.TrainerDAO;
 import com.epam.project.model.Trainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-@Service
 public class TrainerService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrainerService.class);
     private TrainerDAO trainerDAO;
 
-    @Autowired
     public TrainerService(TrainerDAO trainerDAO) {
         this.trainerDAO = trainerDAO;
     }

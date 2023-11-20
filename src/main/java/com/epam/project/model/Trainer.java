@@ -6,9 +6,6 @@ public class Trainer {
     private String name;
     private User user;
 
-    public Trainer() {
-    }
-
     public Trainer(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -19,20 +16,8 @@ public class Trainer {
         this.user = user;
     }
 
-    public Specialization getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(Specialization specialization) {
-        this.specialization = specialization;
-    }
-
     public User getUser() {
         return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Integer getId() {
@@ -45,9 +30,5 @@ public class Trainer {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

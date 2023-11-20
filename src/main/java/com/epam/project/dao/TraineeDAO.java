@@ -20,11 +20,6 @@ public class TraineeDAO {
     @Value("${data.file.path.trainee}")
     private String dataFilePath;
 
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
-
-
     public void writeDataToTraineeFile(Map<Integer, Trainee> trainees) {
         try (FileWriter writer = new FileWriter("data_trainee.txt")) {
             for (Map.Entry<Integer, Trainee> entry : trainees.entrySet()) {
@@ -70,5 +65,9 @@ public class TraineeDAO {
         Map<Integer, Trainee> existingData = readDataFromTraineeFile();
         existingData.remove(id);
         writeDataToTraineeFile(existingData);
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

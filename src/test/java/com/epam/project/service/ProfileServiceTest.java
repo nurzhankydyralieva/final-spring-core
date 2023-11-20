@@ -65,7 +65,6 @@ class ProfileServiceTest {
         assertTrue(trainers.containsKey(1));
     }
 
-
     @Test
     void loadUserData() {
         Map<Integer, User> users = new HashMap<>();

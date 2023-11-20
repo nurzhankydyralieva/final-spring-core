@@ -16,10 +16,6 @@ public class TrainingDAO {
     @Value("${data.file.path.training}")
     private String dataFilePath;
 
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
-
     public void writeDataToTrainingFile(Map<Integer, Training> trainings) {
         try (FileWriter writer = new FileWriter("data_training.txt")) {
             for (Map.Entry<Integer, Training> entry : trainings.entrySet()) {
@@ -53,5 +49,9 @@ public class TrainingDAO {
         }
         storage.setTrainings(trainings);
         return trainings;
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

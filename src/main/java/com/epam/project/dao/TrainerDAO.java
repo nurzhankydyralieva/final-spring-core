@@ -13,13 +13,8 @@ import java.util.Map;
 
 public class TrainerDAO {
     private Storage storage;
-
     @Value("${data.file.path.trainer}")
     private String dataFilePath;
-
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
 
     public void writeDataToTrainerFile(Map<Integer, Trainer> trainers) {
         try (FileWriter writer = new FileWriter("data_trainer.txt")) {
@@ -56,5 +51,8 @@ public class TrainerDAO {
         }
         storage.setTrainers(trainers);
         return trainers;
+    }
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

@@ -8,16 +8,6 @@ public class Trainee {
     private String address;
     private User user;
 
-    public Trainee() {
-    }
-
-    public Trainee(Integer id, Date dateOfBirth, String address, User user) {
-        this.id = id;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
-        this.user = user;
-    }
-
     public Trainee(Integer id, Date dateOfBirth, String address) {
         this.id = id;
         this.dateOfBirth = dateOfBirth;
@@ -47,24 +37,12 @@ public class Trainee {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public User getUser() {
         return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override
