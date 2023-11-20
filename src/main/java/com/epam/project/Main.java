@@ -29,8 +29,8 @@ public class Main {
         trainers.put(2, new Trainer(2, "Smith"));
         trainers.put(3, new Trainer(3, "Bocelli"));
 
-       // facade.createTrainer(trainers);
-      //  facade.updateTrainer(1, new Trainer(1, "Katy Perry"));
+        facade.createTrainer(trainers);
+        facade.updateTrainer(1, new Trainer(1, "Katy Perry"));
         facade.selectTrainer();
 
         Map<Integer, Trainer> trainers2 = storage.getTrainers();
@@ -45,10 +45,10 @@ public class Main {
         trainees.put(2, new Trainee(2, new Date(), "Tashkent"));
         trainees.put(3, new Trainee(3, new Date(), "Dubai"));
 
-      //  facade.createTrainee(trainees);
-      //  facade.updateTrainee(1, new Trainee(1, new Date(), "Dubai"));
+        facade.createTrainee(trainees);
+        facade.updateTrainee(1, new Trainee(1, new Date(), "Dubai"));
         facade.selectTrainee();
-     //   facade.deleteTrainee(1);
+        facade.deleteTrainee(1);
 
         Map<Integer, Trainee> trainees2 = storage.getTrainees();
 
@@ -61,7 +61,7 @@ public class Main {
         trainings.put(1, new Training(1, "Dance", 77));
         trainings.put(2, new Training(2, "Box", 123));
 
-     //   facade.createTraining(trainings);
+        facade.createTraining(trainings);
         facade.selectTraining();
 
         Map<Integer, Training> trainings2 = storage.getTrainings();

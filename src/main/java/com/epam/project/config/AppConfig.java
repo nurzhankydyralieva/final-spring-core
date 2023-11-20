@@ -7,6 +7,7 @@ import com.epam.project.service.TraineeService;
 import com.epam.project.service.TrainerService;
 import com.epam.project.service.TrainingService;
 import com.epam.project.storage.Storage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,8 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan("com.epam.project")
 @PropertySource("classpath:application.properties")
 public class AppConfig {
+    @Autowired
+    private Storage storage;
 
     @Bean(initMethod = "initBean", destroyMethod = "destroyBean")
     public Storage storage() {
@@ -40,18 +43,21 @@ public class AppConfig {
     @Bean
     public TrainerDAO trainerDAO() {
         TrainerDAO object = new TrainerDAO();
+        object.setStorage(storage);
         return object;
     }
 
     @Bean
     public TraineeDAO traineeDAO() {
         TraineeDAO object = new TraineeDAO();
+        object.setStorage(storage);
         return object;
     }
 
     @Bean
     public TrainingDAO trainingDAO() {
         TrainingDAO object = new TrainingDAO();
+        object.setStorage(storage);
         return object;
     }
 }

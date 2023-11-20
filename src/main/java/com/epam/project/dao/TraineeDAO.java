@@ -2,9 +2,7 @@ package com.epam.project.dao;
 
 import com.epam.project.model.Trainee;
 import com.epam.project.storage.Storage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,13 +15,15 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-@Repository
 public class TraineeDAO {
-    @Autowired
     private Storage storage;
-
     @Value("${data.file.path.trainee}")
     private String dataFilePath;
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
+    }
+
 
     public void writeDataToTraineeFile(Map<Integer, Trainee> trainees) {
         try (FileWriter writer = new FileWriter("data_trainee.txt")) {
@@ -56,11 +56,9 @@ public class TraineeDAO {
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-
         storage.setTrainees(trainees);
         return trainees;
     }
-
 
     public void updateDataInTraineeFile(int id, Trainee updatedTrainee) {
         Map<Integer, Trainee> existingData = readDataFromTraineeFile();

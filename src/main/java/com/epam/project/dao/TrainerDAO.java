@@ -2,9 +2,7 @@ package com.epam.project.dao;
 
 import com.epam.project.model.Trainer;
 import com.epam.project.storage.Storage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,13 +11,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
 public class TrainerDAO {
-    @Autowired
     private Storage storage;
 
     @Value("${data.file.path.trainer}")
     private String dataFilePath;
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
+    }
 
     public void writeDataToTrainerFile(Map<Integer, Trainer> trainers) {
         try (FileWriter writer = new FileWriter("data_trainer.txt")) {

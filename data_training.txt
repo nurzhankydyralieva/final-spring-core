@@ -1,3 +1,2 @@
-1,null, Cross-country running, null, null, 55
-2,null, Olympic weightlifting, null, null, 40
-3,null, Chess boxing, null, null, 22
+1,null, Dance, null, null, 77
+2,null, Box, null, null, 123
